@@ -162,7 +162,17 @@ async function uploadImageToGoogleDrive(file) {
     return response.data
 }
 
-app.get('/detail', async(req, res) => {
+
+  var accountan = path.join(process.cwd(),'./ju.json')
+  var accounts = JSON.parse(fs.readFileSync(accountan,'utf-8'));
+  //var accounts = JSON.parse(fs.readFileSync('./data.json','utf-8'));
+  
+  //app.get('/detail', function(req, res, next) {
+    //const data = accounts;
+    //res.json(data)
+  //});
+
+app.get('/detai', async(req, res) => {
     try {
         const data = await Rightrealm.find() .sort({_id:-1});
         res.json(data);
@@ -285,11 +295,14 @@ app.post("/", upload.single('image'), async(req, res) => {
     //res.redirect("/"); <h1 style="font-size:5rem; margin-top:0rem;text-align: center;">${newNote.EmergencyNo}</h1>
 })
 
-
-
-
 connectDB().then(() => {
-    app.listen(PORT, () => {
-        console.log("listening for requests");
+   app.listen(PORT, () => {
+      console.log("listening for requests");
     })
 });
+
+
+
+    //app.listen(PORT, () => {
+       // console.log("listening for requests");
+    //});

@@ -90,9 +90,9 @@ async function getmovie() {
 							margin-bottom: 0%;
 							" src="btnn.jpg" alt="">         
 						</div>
-						<h2 style="font-size: 21px;font-weight: bolder;color: white;" >NATIONAL ASSOCOATION OF</h2>
-                        <h2 style="font-size: 23px;font-weight: bolder;color: white;">MICROBIOLOGY STUDENT</h2>
-						<p style="font-size: 21px;font-weight: bolder;color: black;">IMO STATE UNIVERSITY</p>
+						<h2 style="font-size: 30px;font-weight: bolder;color: white;" >MYDATABASE</h2>
+                        <h2 style="font-size: 23px;font-weight: bolder;color: white;">Information Technology</h2>
+						<p style="font-size: 13px;font-weight: bolder;color: yellow;">DATABASE - IDENTIFICATION - AUNTHENTICATION</p>
 					</div>
 
                     
@@ -140,7 +140,7 @@ async function getmovie() {
               <div style="width:31%;margin:0 1px;">
                   <h1 style="font-size:12px;margin-top:-5px;text-align:center;padding:0 1.5rem;">GENDER</h1>
                   <div class="profile-info">
-                  <h2 style="color:black;padding:0 .8rem;margin-top:-5px;font-weight: bolder;justify-self: center;font-size: 18px;font-weight: bolder;background-color: transparent;border: none;text-align: center;width:6rem;" >${user.Sex}</h2>
+                  <h2 style="color:black;padding:0 .8rem;margin-top:-5px;font-weight: bolder;justify-self: center;font-size: 18px;font-weight: bolder;background-color: transparent;border: none;text-align: center;width:6rem;" >${user.Gender}</h2>
                   </div>
               </div>
           </div>
@@ -153,11 +153,11 @@ async function getmovie() {
               
               <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">RESIDENCIAL ADD</h1>
               <div style="flex-direction:column;"class="profile-info"> 
-	            <h1 style="margin:-5px;color:red;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Residence}</h1> 
+	            <h1 style="margin:-5px;color:black;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Residence}</h1> 
               </div> 
               <div style="display:flex;margin:-9px 0px;;justify-content:center;margin-right: 1rem;">
                   <div>
-                      <h1 style="font-size:12px;margin:0px;text-align:center;">PARENT NO </h1>
+                      <h1 style="font-size:12px;margin:0px;text-align:center;">PHONE NO </h1>
                       <div class="profile-info">
                           
                               <div style="margin-left: 0px;"class="p1">	
@@ -168,7 +168,7 @@ async function getmovie() {
                       </div>
                   </div>
                     <div>
-                      <h1 style="font-size:12px;margin:0px;text-align:center;">PARENT NO:</h1>
+                      <h1 style="font-size:12px;margin:0px;text-align:center;">PHONE NO:</h1>
                            <div class="profile-info">
                           
                               <div style="margin-left: 0px;"class="p2">
