@@ -33,7 +33,7 @@ const autoIncrement = require("mongoose-sequence")(mongoose);
 
 // Google Drive API setup
 
-const serverUrl = 'https://namsimsu.mydatabase.com.ng';
+const serverUrl = 'https://right-66q6.onrender.com'
 
 const keepAlive = () => {
     axios.get(serverUrl)
