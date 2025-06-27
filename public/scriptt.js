@@ -163,7 +163,7 @@ async function getmovie() {
                       <h1 style="font-size:12px;margin:0px;text-align:center;">PARENT NO </h1>
                       <div class="profile-info">
                           
-                              <div style="margin-left: 0px;"class="p1" href= "${user.PhoneNo}">	
+                              <a style="margin-left: 0px;text-decoration:none;"class="p1" href= "tel:${user.PhoneNo}">	
                                   <h1 style="margin-left: 0px;font-size: 18px;border: none;text-align: center;padding: 0px 10px;font-weight: bolder;
                                   background-color: transparent;color: white;width:9rem;">${user.PhoneNo}</h1>
                               </div>
@@ -174,7 +174,7 @@ async function getmovie() {
                       <h1 style="font-size:12px;margin:0px;text-align:center;">PARENT NO:</h1>
                            <div class="profile-info">
                           
-                              <a style="margin-left: 0px;"class="p2" href= "${user.EmergencyNo}">
+                              <a style="margin-left: 0px;text-decoration:none;"class="p2" href="tel:${user.EmergencyNo}">
                                <h1 style="margin-left: 0px;font-size: 18px;border: none;text-align: center;padding: 0px 10px;font-weight: bolder;
                                   background-color: transparent;color: white;width:9rem;">${user.EmergencyNo}</h1>
                               </a>
