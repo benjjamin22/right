@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Image Crop</title>
+    <style>
+        #imageBox {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px dashed #ccc;
+            margin-bottom: 10px;
+        }
+        
+        #imageBox img {
+            max-width: 100%;
+            max-height: 100%; 
+        }
+        
+        #croppedImage {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="imageBox">
+        <span>Click to select an image</span>
+        <img id="selectedImage" src="" alt="Selected Image" style="display: none;">
+    </div>
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    <canvas id="canvas" style="display: none;"></canvas>
+    <img id="croppedImage" src="" alt="Cropped Image">
+
+    <script>
+        const imageBox = document.getElementById('imageBox');
+        const fileInput = document.getElementById('fileInput');
+        const selectedImage = document.getElementById('selectedImage');
+        const canvas = document.getElementById('canvas');
+        const croppedImage = document.getElementById('croppedImage');
+
+        imageBox.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    selectedImage.src = e.target.result;
+                    selectedImage.style.display = 'block';
+                    imageBox.querySelector('span').style.display = 'none';
+
+                    selectedImage.onload = () => {
+                        autoCropImage(selectedImage);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function autoCropImage(image) {
+            const aspectRatio = 1; // 1:1 aspect ratio for square crop
+            const canvasContext = canvas.getContext('2d');
+
+            const width = image.width;
+            const height = image.height;
+            let cropWidth, cropHeight;
+
+            if (width > height) {
+                cropWidth = height * aspectRatio;
+                cropHeight = height;
+            } else {
+                cropWidth = width;
+                cropHeight = width / aspectRatio;
+            }
+
+            const startX = (width - cropWidth) / 2;
+            const startY = (height - cropHeight) / 2;
+
+            canvas.width = cropWidth;
+            canvas.height = cropHeight;
+
+            canvasContext.drawImage(image, startX, startY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+            const croppedDataUrl = canvas.toDataURL();
+            croppedImage.src = croppedDataUrl;
+        }
+    </script>
+
+</body>
+
+</html>

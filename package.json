@@ -1,0 +1,31 @@
+{
+    "name": "myexpress",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.9.0",
+        "body-parser": "^1.20.3",
+        "dotenv": "^16.3.1",
+        "ejs": "^3.1.10",
+        "express": "^4.21.2",
+        "express-validator": "^7.1.0",
+        "googleapis": "^140.0.1",
+        "mongoose": "^7.8.7",
+        "mongoose-sequence": "^6.0.1",
+        "multer": "^1.4.5-lts.1",
+        "nanoid": "^3.0.0",
+        "node-cron": "^3.0.3",
+        "sharp": "^0.33.4",
+        "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}
