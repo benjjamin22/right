@@ -112,12 +112,12 @@ async function getmovie() {
                     </div>
   </div>
 </div>
-  <h1 style="font-size:17px;margin-top:10px;text-align:center;padding:0 0rem;">REG NUMBER</h1>
+  <h1 style="font-size:17px;margin-top:10px;text-align:center;padding:0 0rem;">CLASS</h1>
   <div class="profile-bottom" style="margin-bottom:-25px";>
       <div style="flex-direction:column;margin:-11px 0px;" class="profile-info">      
           <h1 style="Font-size:22px;text-align: center;color:black;font-weight: bolder;">- ${user.RegNo}-</h1>                               
           </div>
-           <h1 style="font-size:15px;margin-top:20px;text-align:center;padding:0 0rem;">Validity</h1>
+           <h1 style="font-size:15px;margin-top:20px;text-align:center;padding:0 0rem;">YEAR OF ADMIN</h1>
            <div style="flex-direction:column;"class="profile-info"> 
                   <h1 style="margin-top:-1.5px;font-size:19px;color:black;font-weight: bolder;">-${user.Validity}-</h1>
                 
@@ -151,26 +151,29 @@ async function getmovie() {
                     <h1 style="margin-top:-1px;font-weight: bold;font-size: 20px;border: none;text-align: center;">${user.State}</h1> 
               </div> 
               
-              
+              <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">RESIDENCIAL ADD</h1>
+              <div style="flex-direction:column;"class="profile-info"> 
+	            <h1 style="margin:-5px;color:red;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Residence}</h1> 
+              </div> 
               <div style="display:flex;margin:-9px 0px;;justify-content:center;margin-right: 1rem;">
                   <div>
-                      <h1 style="font-size:12px;margin:0px;text-align:center;">PHONE NO </h1>
+                      <h1 style="font-size:12px;margin:0px;text-align:center;">PARENT NO </h1>
                       <div class="profile-info">
                           
                               <div style="margin-left: 0px;"class="p1">	
                                   <h1 style="margin-left: 0px;font-size: 18px;border: none;text-align: center;padding: 0px 10px;font-weight: bolder;
-                                  background-color: transparent;color: white;width:9rem;">Protected</h1>
+                                  background-color: transparent;color: white;width:9rem;">${user.PhoneNo}</h1>
                               </div>
                                            
                       </div>
                   </div>
-                  <div>
-                      <h1 style="font-size:12px;margin:0px;text-align:center;">EMERGENCY NO:</h1>
-                      <div class="profile-info">
+                    <div>
+                      <h1 style="font-size:12px;margin:0px;text-align:center;">PARENT NO:</h1>
+                           <div class="profile-info">
                           
                               <div style="margin-left: 0px;"class="p2">
                                <h1 style="margin-left: 0px;font-size: 18px;border: none;text-align: center;padding: 0px 10px;font-weight: bolder;
-                                  background-color: transparent;color: white;width:9rem;">Protected</h1>
+                                  background-color: transparent;color: white;width:9rem;">${user.EmergencyNo}</h1>
                               </div>
                                             
                       </div>                           
