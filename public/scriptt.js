@@ -91,7 +91,7 @@ async function getmovie() {
 							" src="btnn.jpg" alt="">         
 						</div>
 						<h2 style="font-size: 33px;font-weight: bolder;color: white;" >RIGHTREALM</h2>
-                        <h2 style="font-size: 31px;font-weight: bolder;color: white;">ACADEMY</h2>
+                        <h2 style="font-size: 35px;font-weight: bolder;color: white;">ACADEMY</h2>
 						<p style="font-size: 13px;font-weight: bolder;color: yellow;">PRE-NURSERY - NURSERY - PRIMARY</p>
 					</div>
 
@@ -146,7 +146,7 @@ async function getmovie() {
           </div>
           <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">RESIDENCIAL ADDRRSS:</h1>
               <div style="flex-direction:column;"class="profile-info"> 
-	            <h1 style="margin:-5px;color:black;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Residence}</h1> 
+	            <h1 style="margin:-5px;color:black;font-size:20px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Residence}</h1> 
               </div>
           <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">LGA/STATE OF ORIGIN</h1>
               <div style="flex-direction:column;"class="profile-info"> 
