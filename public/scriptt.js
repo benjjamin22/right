@@ -117,7 +117,7 @@ async function getmovie() {
       <div style="flex-direction:column;margin:-11px 0px;" class="profile-info">      
           <h1 style="Font-size:22px;text-align: center;color:black;font-weight: bolder;">- ${user.RegNo}-</h1>                               
           </div>
-           <h1 style="font-size:15px;margin-top:20px;text-align:center;padding:0 0rem;">YEAR OF ADMIN</h1>
+           <h1 style="font-size:15px;margin-top:20px;text-align:center;padding:0 0rem;">DATE OF BIRTH </h1>
            <div style="flex-direction:column;"class="profile-info"> 
                   <h1 style="margin-top:-1.5px;font-size:19px;color:black;font-weight: bolder;">-${user.Validity}-</h1>
                 
