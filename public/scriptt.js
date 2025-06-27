@@ -166,7 +166,7 @@ async function getmovie() {
                               <a style="margin-left: 0px;text-decoration:none;"class="p1" href= "tel:${user.PhoneNo}">	
                                   <h1 style="margin-left: 0px;font-size: 18px;border: none;text-align: center;padding: 0px 10px;font-weight: bolder;
                                   background-color: transparent;color: white;width:9rem;">${user.PhoneNo}</h1>
-                              </div>
+                              </a>
                                            
                       </div>
                   </div>
