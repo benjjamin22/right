@@ -90,8 +90,8 @@ async function getmovie() {
 							margin-bottom: 0%;
 							" src="btnn.jpg" alt="">         
 						</div>
-						<h2 style="font-size: 30px;font-weight: bolder;color: white;" >RIGHTREALM</h2>
-                        <h2 style="font-size: 23px;font-weight: bolder;color: white;">ACADEMY</h2>
+						<h2 style="font-size: 33px;font-weight: bolder;color: white;" >RIGHTREALM</h2>
+                        <h2 style="font-size: 31px;font-weight: bolder;color: white;">ACADEMY</h2>
 						<p style="font-size: 13px;font-weight: bolder;color: yellow;">PRE-NURSERY - NURSERY - PRIMARY</p>
 					</div>
 
