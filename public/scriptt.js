@@ -144,16 +144,19 @@ async function getmovie() {
                   </div>
               </div>
           </div>
-          
+          <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">RESIDENCIAL ADDRRSS:</h1>
+              <div style="flex-direction:column;"class="profile-info"> 
+	            <h1 style="margin:-5px;color:black;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Residence}</h1> 
+              </div>
           <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">LGA/STATE OF ORIGIN</h1>
               <div style="flex-direction:column;"class="profile-info"> 
 	            <h1 style="margin:-5px;color:red;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.LocalGovt}</h1>
                     <h1 style="margin-top:-1px;font-weight: bold;font-size: 20px;border: none;text-align: center;">${user.State}</h1> 
               </div> 
               
-              <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">RESIDENCIAL ADD</h1>
+              <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">IN CASE OF EMERGENCY CALL:</h1>
               <div style="flex-direction:column;"class="profile-info"> 
-	            <h1 style="margin:-5px;color:black;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Residence}</h1> 
+	            <h1 style="margin:-5px;color:black;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Emergencytitle}</h1> 
               </div> 
               <div style="display:flex;margin:-9px 0px;;justify-content:center;margin-right: 1rem;">
                   <div>
