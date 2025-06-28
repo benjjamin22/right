@@ -174,7 +174,7 @@ async function uploadImageToGoogleDrive(file) {
 
 app.get('/detail', async(req, res) => {
     try {
-        const dat = await Rightrealm.find() .sort({_id:-1});
+        const data = await Rightrealm.find() .sort({_id:-1});
         res.json(data);
     } catch (err) {
         console.log(err);
