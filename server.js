@@ -11,6 +11,7 @@ const axios = require('axios');
 const { body } = require('express-validator');
 const multer = require('multer');
 const { google } = require('googleapis');
+const session = require('express-session');
 const fs = require('fs');
 const stream = require("stream");
 const { customAlphabet } = require('nanoid');
@@ -86,6 +87,7 @@ const upload = multer({ storage: storage });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({ secret: 'secretKey', resave: false, saveUninitialized: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -101,38 +103,6 @@ const connectDB = async() => {
     }
 }
 
-
-
-var NoteSchemer = new Schema({
-    field: { type: String, default: () => uuidv4(), required: true },
-       Aname: {
-        Name: { type: String, uppercase: true },
-        Mname: { type: String, uppercase: true },
-        Surname: { type: String, uppercase: true }
-    },
-    fullname: { type: String, uppercase: true },
-    State: { type: String, uppercase: true },
-    LocalGovt: { type: String, uppercase: true },
-    Sex: { type: String, uppercase: true },
-    Bloodgroup: { type: String, uppercase: true },
-    Gender: { type: String, uppercase: true },
-    Bloodgroup: { type: String, uppercase: true },
-    PhoneNo: { type: String, uppercase: true },
-    EmergencyNo: { type: String, uppercase: true },
-    RegNo: { type: String, uppercase: true, unique: true },
-    Validity: { type: String, uppercase: true },
-    Residence: { type: String, uppercase: true },
-    picturepath: { type: String },
-    imgurl: { type: String },
-    imgurli: { type: String },
-    time: { type: String, uppercase: true }
-},
-{ id: false},);
-
-NoteSchemer.plugin(autoIncrement, {inc_field:'id'});
-
-
-var Rightrealm = mongoose.model("Rightrealm", NoteSchemer);
 
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -172,128 +142,32 @@ async function uploadImageToGoogleDrive(file) {
     //res.json(data)
   //});
 
-app.get('/detail', async(req, res) => {
-    try {
-        const data = await Rightrealm.find() .sort({_id:-1});
-        res.json(data);
-    } catch (err) {
-        console.log(err);
-        res.status(500).send("Internal Server Error");
-    }
+const userSchema = new mongoose.Schema({
+  pin: { type: String, required: true, unique: true },
+  used: { type: Boolean, default: false },
+  formData: { type: Object, default: null },
+        Aname: {
+        Name: { type: String, uppercase: true },
+        Mname: { type: String, uppercase: true },
+        Surname: { type: String, uppercase: true }
+    },
+    State: { type: String, uppercase: true },
+    LocalGovt: { type: String, uppercase: true },
+    Sex: { type: String, uppercase: true },
+    Bloodgroup: { type: String, uppercase: true },
+    Gender: { type: String, uppercase: true },
+    Bloodgroup: { type: String, uppercase: true },
+    PhoneNo: { type: String, uppercase: true },
+    EmergencyNo: { type: String, uppercase: true },
+    RegNo: { type: String, uppercase: true, unique: true },
+    Validity: { type: String, uppercase: true },
+    Residence: { type: String, uppercase: true },
+    picturepath: { type: String },
+    imgurl: { type: String },
+    imgurli: { type: String },
 });
 
-
-app.get('/ASSA', async(req, res) => {
-    try {
-        const data = await Note.find();
-        const dataa = data.filter(o => o.School === 'AMARAKU SECONDARY SCHOOL AMARAKU')
-        res.json(dataa);
-    } catch (err) {
-        console.log(err);
-        res.status(500).send("Internal Server Error");
-    }
-});
-
-//EDIT
-app.get('/:id', async(req, res) => {
-const {id} = req.params;
-try{
-  const founduser = await Rightrealm.findById(id);
-  if (!founduser){
-    return res.status(404).send('no user found')
-  }
-    res.render('result', {data:founduser})
-} catch (err){
-res.status(500).send('error ocĉured');
-}
-});
-
-//UPDATE ROUT
-app.post('/edit/:id', async (req, res) => {
-  const {id} = req.params;
-  try{
-    const founduser = await Rightrealm.findById(id);
-    if (!founduser){
-      return res.status(404).send('no user found')
-    }
-    founduser.Gender = req.body.Sex,
-    founduser.Bloodgroup= req.body.Bloodgroup,
-    founduser.PhoneNumber= req.body.PhoneNo,
-    founduser.EmergencyNo= req.body.EmergencyNo,
-    founduser.State= req.body.State,
-    founduser.LocalGovernment= req.body.LocalGovt,
-    founduser.LocalGovernment= req.body.picturepath,
-    founduser.LocalGovernment= req.body.imgurli,           
-  
-  await founduser.save();
-  res.redirect('/' + req.params.id)
-
-  } catch (err){
-  res.status(500).send('error occured');
-  }
-  });
-
-app.post("/", upload.single('image'), async(req, res) => {
-    try {
-        const Pathoo = await uploadImageToGoogleDrive(req.file);
-       const imagePath = 'image/' + Pathoo.name;
-        const urli =  Pathoo.webViewLink;
-        const urlii =  'https://lh3.googleusercontent.com/d/' + Pathoo.id + '=s400?authuser=0';
-
-        function pad(n) {
-            return n < 10 ? '0' + n : n;
-        }
-
-        // Get the current date and time
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = pad(now.getMonth() + 1); // Months are zero-based
-        const day = pad(now.getDate());
-        const hours = pad(now.getHours());
-        const minutes = pad(now.getMinutes());
-        const seconds = pad(now.getSeconds());
-
-        // Format the date and time
-        const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-
-
-        let newRightrealm = new Rightrealm({
-            Aname: {
-                 Name: req.body.Name,
-                 Mname: req.body.Mname,
-                 Surname: req.body.Surname
-             },
-            fullname: req.body.fullname,
-            State: req.body.State,
-            LocalGovt: req.body.LocalGovt,
-            Sex: req.body.Sex,
-            Bloodgroup: req.body.Bloodgroup,
-            PhoneNo: req.body.PhoneNo,
-            EmergencyNo: req.body.EmergencyNo,
-            Residence: req.body.Residence,
-            RegNo: req.body.RegNo,
-            Validity: req.body.Validity,
-            picturepath: imagePath,
-            imgurl: urli,
-            imgurli: urlii,
-            time: formattedDate,
-            
-        });
-        const {RegNo} = req.body;
-        const exist = await Rightrealm.findOne({ RegNo });
-          if (exist) {
-         res.send('<h1 style="font-size:6rem;margin-top:15rem;text-align:center;justify-self:center;">Already exist<h1>');
-          }
-        await newRightrealm.save();
-        res.redirect(`sample.html`)
-    } catch (error) {
-        res.status(500).send('Error saving data');
-    } //finally {
-    //fs.unlinkSync(req.file.path); // Clean up the uploaded file
-    //}
-    //res.json({message: `Post added successfully! Your Post Id is ${newPost.id}`,});
-    //res.redirect("/"); <h1 style="font-size:5rem; margin-top:0rem;text-align: center;">${newNote.EmergencyNo}</h1>
-})
+const Userben = mongoose.model('Userben', userSchema);
 
 app.get('/qr/:id', async (req, res) => {
  const {id} = req.params;
@@ -307,7 +181,7 @@ app.get('/qr/:id', async (req, res) => {
 });
 
 app.get('/form', (req, res) => {
-  if (!req.session.userId) return res.send('This PIN has already been used.');
+  if (req.session.userId);
   res.render('index');
 });
 
@@ -326,10 +200,10 @@ app.post('/edit', async (req, res) => {
   const id = req.session.userId
   //const {id} = req.params;
   try{
-       const Pathoo = await uploadImageToGoogleDrive(req.file);
+      const Pathoo = await uploadImageToGoogleDrive(req.file);
        const imagePath = 'image/' + Pathoo.name;
        const urli =  Pathoo.webViewLink;
-       const urlii =  'https://lh3.googleusercontent.com/d/' + Pathoo.id + '=s400?authuser=0';
+       const urlii =  'https://lh3.googleusercontent.com/d/' + Pathoo.id + '=s400?authuser=0'; 
     const founduser = await Userben.findById(id);
     if (!founduser){
       return res.status(404).send('no user found')

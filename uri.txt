@@ -5,3 +5,12 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/benjjamin22/right.git
 git push -u origin main
+
+
+686ac5b63d05a308843c1fb5
+686ac5b63d05a308843c1fb4
+
+const Pathoo = await uploadImageToGoogleDrive(req.file);
+       const imagePath = 'image/' + Pathoo.name;
+       const urli =  Pathoo.webViewLink;
+       const urlii =  'https://lh3.googleusercontent.com/d/' + Pathoo.id + '=s400?authuser=0';
