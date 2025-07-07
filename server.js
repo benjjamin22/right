@@ -296,8 +296,8 @@ app.post("/", upload.single('image'), async(req, res) => {
 })
 
 app.get('/qr/:pin', async (req, res) => {
- const {pin} = req.params;
-  const user = await Userben.findOne({ pin });
+ const {id} = req.params;
+  const user = await Userben.findOne(id);
 
   if (!user) return res.send('Invalid PIN');
   if (user.used) return res.send('This PIN has already been used.');
