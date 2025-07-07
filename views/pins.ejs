@@ -1,0 +1,17 @@
+// === FILE: views/pins.ejs ===
+<!DOCTYPE html>
+<html>
+<head><title>Generated PINs</title></head>
+<body>
+  <h1>All Generated PINs</h1>
+  <table border="1">
+    <tr><th>PIN</th><th>Used</th></tr>
+    <% users.forEach(user => { %>
+      <tr>
+        <td><%= user.pin %></td>
+        <td><%= user.used ? 'Yes' : 'No' %></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
