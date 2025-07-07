@@ -33,7 +33,7 @@ const autoIncrement = require("mongoose-sequence")(mongoose);
 
 // Google Drive API setup
 
-const serverUrl = 'https://namsimsu.mydatabase.com.ng';
+const serverUrl = 'https://right-66q6.onrender.com'
 
 const keepAlive = () => {
     axios.get(serverUrl)
@@ -67,7 +67,7 @@ const drive = google.drive({ version: 'v3', auth: oauth2Client });
 //Schedule the task to run every 5 minutes
 cron.schedule('*/14 * * * *', () => {
     console.log('Sending keep-alive request to server...');
-    keepAlive();
+    keepAlive;
 });
 
 console.log('Keep-alive script started.');

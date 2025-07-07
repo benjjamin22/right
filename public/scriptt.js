@@ -91,7 +91,7 @@ async function getmovie() {
 							" src="btnn.jpg" alt="">         
 						</div>
 						<h2 style="font-size: 33px;font-weight: bolder;color: white;" >RIGHTREALM</h2>
-                        <h2 style="font-size: 31px;font-weight: bolder;color: white;">ACADEMY</h2>
+                        <h2 style="font-size: 35px;font-weight: bolder;color: white;">ACADEMY</h2>
 						<p style="font-size: 13px;font-weight: bolder;color: yellow;">PRE-NURSERY - NURSERY - PRIMARY</p>
 					</div>
 
@@ -117,7 +117,7 @@ async function getmovie() {
       <div style="flex-direction:column;margin:-11px 0px;" class="profile-info">      
           <h1 style="Font-size:22px;text-align: center;color:black;font-weight: bolder;">- ${user.RegNo}-</h1>                               
           </div>
-           <h1 style="font-size:15px;margin-top:20px;text-align:center;padding:0 0rem;">YEAR OF ADMIN</h1>
+           <h1 style="font-size:15px;margin-top:20px;text-align:center;padding:0 0rem;">DATE OF BIRTH </h1>
            <div style="flex-direction:column;"class="profile-info"> 
                   <h1 style="margin-top:-1.5px;font-size:19px;color:black;font-weight: bolder;">-${user.Validity}-</h1>
                 
@@ -144,26 +144,29 @@ async function getmovie() {
                   </div>
               </div>
           </div>
-          
+          <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">RESIDENCIAL ADDRRSS:</h1>
+              <div style="flex-direction:column;"class="profile-info"> 
+	            <h1 style="margin:-5px;color:black;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Residence}</h1> 
+              </div>
           <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">LGA/STATE OF ORIGIN</h1>
               <div style="flex-direction:column;"class="profile-info"> 
 	            <h1 style="margin:-5px;color:red;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.LocalGovt}</h1>
                     <h1 style="margin-top:-1px;font-weight: bold;font-size: 20px;border: none;text-align: center;">${user.State}</h1> 
               </div> 
               
-              <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">RESIDENCIAL ADD</h1>
+              <h1 style="font-size:12px;margin-top:-8px;text-align:center;padding:0 0rem;">IN CASE OF EMERGENCY CALL:</h1>
               <div style="flex-direction:column;"class="profile-info"> 
-	            <h1 style="margin:-5px;color:black;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Residence}</h1> 
+	            <h1 style="margin:-5px;color:black;font-size:15px;margin: 1px 0px;font-weight: bolder;border: none;text-align: center;">${user.Emergencytitle}</h1> 
               </div> 
               <div style="display:flex;margin:-9px 0px;;justify-content:center;margin-right: 1rem;">
                   <div>
                       <h1 style="font-size:12px;margin:0px;text-align:center;">PARENT NO </h1>
                       <div class="profile-info">
                           
-                              <div style="margin-left: 0px;"class="p1">	
+                              <a style="margin-left: 0px;text-decoration:none;"class="p1" href= "tel:${user.PhoneNo}">	
                                   <h1 style="margin-left: 0px;font-size: 18px;border: none;text-align: center;padding: 0px 10px;font-weight: bolder;
                                   background-color: transparent;color: white;width:9rem;">${user.PhoneNo}</h1>
-                              </div>
+                              </a>
                                            
                       </div>
                   </div>
@@ -171,10 +174,10 @@ async function getmovie() {
                       <h1 style="font-size:12px;margin:0px;text-align:center;">PARENT NO:</h1>
                            <div class="profile-info">
                           
-                              <div style="margin-left: 0px;"class="p2">
+                              <a style="margin-left: 0px;text-decoration:none;"class="p2" href="tel:${user.EmergencyNo}">
                                <h1 style="margin-left: 0px;font-size: 18px;border: none;text-align: center;padding: 0px 10px;font-weight: bolder;
                                   background-color: transparent;color: white;width:9rem;">${user.EmergencyNo}</h1>
-                              </div>
+                              </a>
                                             
                       </div>                           
                   </div>
