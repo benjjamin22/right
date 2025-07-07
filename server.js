@@ -295,7 +295,7 @@ app.post("/", upload.single('image'), async(req, res) => {
     //res.redirect("/"); <h1 style="font-size:5rem; margin-top:0rem;text-align: center;">${newNote.EmergencyNo}</h1>
 })
 
-app.get('/qr/:pin', async (req, res) => {
+app.get('/qr/:id', async (req, res) => {
  const {id} = req.params;
   const user = await Userben.findOne(id);
 
