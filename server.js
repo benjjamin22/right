@@ -67,7 +67,7 @@ const drive = google.drive({ version: 'v3', auth: oauth2Client });
 //Schedule the task to run every 5 minutes
 cron.schedule('*/14 * * * *', () => {
     console.log('Sending keep-alive request to server...');
-    keepAlive;
+    keepAlive();
 });
 
 console.log('Keep-alive script started.');
@@ -297,7 +297,7 @@ app.post("/", upload.single('image'), async(req, res) => {
 
 app.get('/qr/:id', async (req, res) => {
  const {id} = req.params;
-  const user = await Userben.findOne(id);
+  const user = await Userben.findById(id);
 
   if (!user) return res.send('Invalid PIN');
   if (user.used) return res.send('This PIN has already been used.');
